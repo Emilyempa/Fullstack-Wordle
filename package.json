@@ -1,0 +1,23 @@
+{
+  "name": "fullstack-wordle",
+  "version": "1.0.0",
+  "description": "Made with React, Vite, Material UI, Node.js, Express.js and PUG",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd client && npm install && cd ../server && npm install",
+    "start": "cd server && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emilyempa/Fullstack-Wordle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Emilyempa/Fullstack-Wordle/issues"
+  },
+  "homepage": "https://github.com/Emilyempa/Fullstack-Wordle#readme"
+}
