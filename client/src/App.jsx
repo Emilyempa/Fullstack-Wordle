@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Play from '/src/pages/Play.jsx';
 import About from '/src/pages/About.jsx';
+import NotFound from '/src/pages/NotFound.jsx';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Play />} /> 
-          <Route path="/about" element={<About />} /> 
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} /> 
         </Routes>
         <Footer />
       </Router>
