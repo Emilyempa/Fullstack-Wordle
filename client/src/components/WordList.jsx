@@ -30,12 +30,7 @@ function WordList() {
     return () => abortController.abort();
   }, []);
 
-  return (
-    <div>
-      <h1>Random Word</h1>
-      <p>{word}</p>
-    </div>
-  );
+  return <p>Correct word: {word}</p>;
 }
 
 export default WordList;
