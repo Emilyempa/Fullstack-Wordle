@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Wordlist from "../components/WordList";
 
 function Play() {
   const [message, setMessage] = useState("");
@@ -27,6 +28,7 @@ function Play() {
     <div>
       <h1>Play</h1>
       <p>{message}</p>
+      <Wordlist />
     </div>
   );
 }
