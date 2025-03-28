@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function WordList({length}) {
+function WordList({length, allowRepeats}) {
   const [word, setWord] = useState("");
 
   useEffect(() => {
@@ -19,7 +19,10 @@ function WordList({length}) {
         }
         const data = await res.json();
         const wordArray = Object.keys(data);
-        const filteredWords = wordArray.filter((w) => w.length === length);
+        const filteredWords = wordArray.filter((w) => {
+          const hasRepeats = new Set(w).size !== w.length; // Kontrollera repeterade bokstäver
+          return w.length === length && (allowRepeats || !hasRepeats);
+        });
         const randomWord =
           filteredWords[Math.floor(Math.random() * filteredWords.length)];
         setWord(randomWord || "No word found");
@@ -29,7 +32,7 @@ function WordList({length}) {
     };
     fetchWords();
     return () => abortController.abort();
-  }, [length]);
+  }, [length, allowRepeats]);
 
   return <p>Correct word: {word}</p>;
 }
