@@ -4,6 +4,7 @@ import DropDown from "../components/Dropdown.jsx";
 
 function Play() {
   const [message, setMessage] = useState("");
+  const [selectedNumber, setSelectedNumber] = useState(2);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -28,9 +29,9 @@ function Play() {
   return (
     <div>
       <h1>Play</h1>
-      <DropDown />
+      <DropDown numberSelected={setSelectedNumber} />
       <p>{message}</p>
-      <Wordlist />
+      <Wordlist length={selectedNumber} />
     </div>
   );
 }

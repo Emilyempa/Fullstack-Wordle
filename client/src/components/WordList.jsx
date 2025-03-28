@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function WordList() {
+function WordList({length}) {
   const [word, setWord] = useState("");
 
   useEffect(() => {
@@ -19,16 +19,17 @@ function WordList() {
         }
         const data = await res.json();
         const wordArray = Object.keys(data);
+        const filteredWords = wordArray.filter((w) => w.length === length);
         const randomWord =
-          wordArray[Math.floor(Math.random() * wordArray.length)];
-        setWord(randomWord);
+          filteredWords[Math.floor(Math.random() * filteredWords.length)];
+        setWord(randomWord || "No word found");
       } catch (error) {
         console.error("Error fetching words:", error);
       }
     };
     fetchWords();
     return () => abortController.abort();
-  }, []);
+  }, [length]);
 
   return <p>Correct word: {word}</p>;
 }
