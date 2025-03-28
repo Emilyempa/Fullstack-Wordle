@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Wordlist from "../components/WordList";
+import Wordlist from "../components/WordList.jsx";
+import DropDown from "../components/Dropdown.jsx";
 
 function Play() {
   const [message, setMessage] = useState("");
@@ -27,6 +28,7 @@ function Play() {
   return (
     <div>
       <h1>Play</h1>
+      <DropDown />
       <p>{message}</p>
       <Wordlist />
     </div>
