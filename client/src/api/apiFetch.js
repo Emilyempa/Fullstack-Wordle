@@ -17,12 +17,8 @@ export const fetchApiData = async (endpoint, options = {}) => {
 };
 
 export const fetchWords = async (length, allowRepeats) => {
-  const data = await fetchApiData(
-    "https://raw.githubusercontent.com/dwyl/english-words/master/words_dictionary.json"
-  );
-  const wordArray = Object.keys(data);
-  return wordArray.filter((w) => {
-    const hasRepeats = new Set(w).size !== w.length;
-    return w.length === length && (allowRepeats || !hasRepeats);
-  });
-};
+    const data = await fetchApiData(
+      `/api/random-word?length=${length}&allowRepeats=${allowRepeats}`
+    );
+    return data.word;
+  };
