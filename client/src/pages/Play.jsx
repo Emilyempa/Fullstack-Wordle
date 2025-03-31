@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Wordlist from "../components/WordList.jsx";
 import DropDown from "../components/Dropdown.jsx";
 import RepeatControl from "../components/RepeatControl.jsx";
+import { fetchApiData } from "../api/apiFetch.js";
 
 function Play() {
   const [message, setMessage] = useState("");
@@ -11,25 +12,17 @@ function Play() {
   const handleRepeatChange = (value) => {
     setAllowRepeats(value);
   };
- 
+
   useEffect(() => {
-    const abortController = new AbortController();
-    const fetchData = async () => {
+    const getMessage = async () => {
       try {
-        const res = await fetch("/api/test-endpoint", {
-          signal: abortController.signal,
-        });
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        const data = await res.json();
+        const data = await fetchApiData("/api/test-endpoint");
         setMessage(data.message);
       } catch (error) {
-        console.error("Error fetching message:", error);
+        console.error("Error:", error);
       }
     };
-    fetchData();
-    return () => abortController.abort();
+    getMessage();
   }, []);
 
   return (
