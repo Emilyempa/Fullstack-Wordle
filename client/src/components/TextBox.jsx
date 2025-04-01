@@ -1,8 +1,9 @@
 import { validateInput } from "../utils/ValidateInput.js";
 import { useState } from "react";
 import { TextField, Button, Box } from "@mui/material";
+import { CompareWords } from "../utils/compareWords.js";
 
-function TextBox({ selectedNumber }) {
+function TextBox({ selectedNumber, correctWord }) {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
 
@@ -18,6 +19,9 @@ function TextBox({ selectedNumber }) {
       setError(validationMessage);
       return;
     }
+
+    const comparisonResult = CompareWords(input, correctWord);
+    console.log("Comparison Result:", comparisonResult);
 
     setInput("");
   };

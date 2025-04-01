@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchWords } from "../api/apiFetch.js";
 
-function WordList({ length, allowRepeats }) {
+function WordList({ length, allowRepeats, onWordFetched }) {
   const [word, setWord] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -14,6 +14,7 @@ function WordList({ length, allowRepeats }) {
       try {
         const randomWord = await fetchWords(length, allowRepeats);
         setWord(randomWord);
+        onWordFetched(randomWord);
       } catch (error) {
         console.error("Error fetching word:", error);
         setError("Failed to load word");
@@ -24,7 +25,7 @@ function WordList({ length, allowRepeats }) {
     };
 
     getRandomWord();
-  }, [length, allowRepeats]);
+  }, [length, allowRepeats, onWordFetched]);
 
   if (isLoading) return <p>Loading word...</p>;
   if (error) return <p>Error: {error}</p>;

@@ -9,6 +9,7 @@ function Play() {
   const [message, setMessage] = useState("");
   const [selectedNumber, setSelectedNumber] = useState(2);
   const [allowRepeats, setAllowRepeats] = useState(true);
+  const [correctWord, setCorrectWord] = useState("");
 
   const handleRepeatChange = (value) => {
     setAllowRepeats(value);
@@ -31,9 +32,9 @@ function Play() {
       <h1>Play</h1>
       <DropDown numberSelected={setSelectedNumber} />
       <RepeatControl onRepeatChange={handleRepeatChange} />
-      <TextBox selectedNumber={selectedNumber}/>
-      <p>{message}</p>
-      <WordList length={selectedNumber} allowRepeats={allowRepeats} />
+      <TextBox selectedNumber={selectedNumber} correctWord={correctWord}/>
+      <WordList length={selectedNumber} allowRepeats={allowRepeats} onWordFetched={setCorrectWord} />
+      <p>{message}</p>     
     </div>
   );
 }
