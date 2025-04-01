@@ -31,7 +31,7 @@ function Play() {
       <h1>Play</h1>
       <DropDown numberSelected={setSelectedNumber} />
       <RepeatControl onRepeatChange={handleRepeatChange} />
-      <TextBox />
+      <TextBox selectedNumber={selectedNumber}/>
       <p>{message}</p>
       <Wordlist length={selectedNumber} allowRepeats={allowRepeats} />
     </div>
