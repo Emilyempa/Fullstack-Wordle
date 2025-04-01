@@ -5,7 +5,7 @@ function Footer() {
         <Box component="footer" sx={{
             textAlign: 'center',
             padding: { xs: '0.5rem 0', md: '1rem 0' }, 
-            backgroundColor: '#cdb4db',
+            backgroundColor: '#003049',
             boxShadow: '0px -4px 6px rgba(0, 0, 0, 0.1)',
             position: 'fixed',
             bottom: 0,
@@ -18,7 +18,8 @@ function Footer() {
                 sx={{ 
                     margin: 0,
                     lineHeight: 1.2,
-                    fontSize: { xs: '0.875rem', md: '1rem' }
+                    fontSize: { xs: '0.875rem', md: '1rem' },
+                    color: '#ffffff',
                 }}
             >
                 &copy; {new Date().getFullYear()} Emily's Wordle App
