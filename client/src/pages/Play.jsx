@@ -3,6 +3,7 @@ import Wordlist from "../components/WordList.jsx";
 import DropDown from "../components/Dropdown.jsx";
 import RepeatControl from "../components/RepeatControl.jsx";
 import { fetchApiData } from "../api/apiFetch.js";
+import TextBox from "../components/TextBox.jsx";
 
 function Play() {
   const [message, setMessage] = useState("");
@@ -22,7 +23,7 @@ function Play() {
         console.error("Error:", error);
       }
     };
-    getMessage();
+  getMessage();
   }, []);
 
   return (
@@ -30,6 +31,7 @@ function Play() {
       <h1>Play</h1>
       <DropDown numberSelected={setSelectedNumber} />
       <RepeatControl onRepeatChange={handleRepeatChange} />
+      <TextBox />
       <p>{message}</p>
       <Wordlist length={selectedNumber} allowRepeats={allowRepeats} />
     </div>

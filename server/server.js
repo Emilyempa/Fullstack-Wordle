@@ -2,14 +2,19 @@ const express = require("express");
 const { getWordList } = require("./fetchWordList.js");
 const app = express();
 const port = 5080;
-// const cors = require('cors');
-// app.set('view engine', 'ejs');
-// app.use(cors());
 
-// app.use(express.static(path.join(__dirname, '../client/dist')));
-// app.get('/', (req, res) => {
-//   res.render('index');
+// app.set('view engine', 'ejs');
+// app.set('views'('./views/ejs'));
+
+// app.use(express.json());
+
+// app.use(/assets, express.static('../client/dist/assets');
+
+//app.get('/', async (req, res) => {
+  // const htmlText = await fs.readFile ('../client/dist');
+  // res.send(htmlText.toString());
 // });
+
 
 app.get("/api/random-word", async (req, res) => {
   try {
