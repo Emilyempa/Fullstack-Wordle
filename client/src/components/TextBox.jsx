@@ -6,6 +6,7 @@ import { CompareWords } from "../utils/compareWords.js";
 function TextBox({ selectedNumber, correctWord }) {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
+  const [feedback, setFeedback] = useState([]);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -21,9 +22,22 @@ function TextBox({ selectedNumber, correctWord }) {
     }
 
     const comparisonResult = CompareWords(input, correctWord);
-    console.log("Comparison Result:", comparisonResult);
-
+    setFeedback(comparisonResult);
+    
     setInput("");
+  };
+
+  const getColor = (result) => {
+    switch (result) {
+      case "correct":
+        return "success.main";
+      case "misplaced":
+        return "warning.light";
+      case "incorrect":
+        return "error.main"; 
+      default:
+        return "grey.500"; 
+    }
   };
 
   return (
@@ -52,6 +66,30 @@ function TextBox({ selectedNumber, correctWord }) {
       >
         Submit
       </Button>
+      {feedback.length > 0 && (
+        <Box sx={{ display: "flex", gap: 1 }}>
+          {feedback.map((item, index) => {
+            const bgColor = getColor(item.result);
+
+            return (
+              <Box
+                key={index}
+                sx={{
+                  color: "white",
+                  backgroundColor: bgColor,
+                  padding: "4px 8px",
+                  borderRadius: "4px",
+                  fontWeight: "bold",
+                  minWidth: "36px",
+                  textAlign: "center",
+                }}
+              >
+                {item.letter}
+              </Box>
+            );
+          })}
+        </Box>
+      )}
     </Box>
   );
 }
