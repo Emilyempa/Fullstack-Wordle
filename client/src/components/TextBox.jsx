@@ -27,7 +27,7 @@ function TextBox({ selectedNumber }) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        m: 2,
         gap: 2,
       }}
     >
