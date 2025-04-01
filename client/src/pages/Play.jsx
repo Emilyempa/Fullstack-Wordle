@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Wordlist from "../components/WordList.jsx";
+import WordList from "../components/WordList.jsx";
 import DropDown from "../components/Dropdown.jsx";
 import RepeatControl from "../components/RepeatControl.jsx";
 import { fetchApiData } from "../api/apiFetch.js";
@@ -33,7 +33,7 @@ function Play() {
       <RepeatControl onRepeatChange={handleRepeatChange} />
       <TextBox selectedNumber={selectedNumber}/>
       <p>{message}</p>
-      <Wordlist length={selectedNumber} allowRepeats={allowRepeats} />
+      <WordList length={selectedNumber} allowRepeats={allowRepeats} />
     </div>
   );
 }
