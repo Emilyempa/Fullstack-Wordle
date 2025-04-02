@@ -45,7 +45,7 @@ function TextBox({ selectedNumber, correctWord }) {
       sx={{
         display: "flex",
         flexDirection: "column",
-        m: 2,
+        alignItems: "center",
         gap: 2,
       }}
     >
