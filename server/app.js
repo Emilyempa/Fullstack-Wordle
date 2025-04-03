@@ -1,58 +1,37 @@
-import dotenv from 'dotenv';
-import express from 'express'
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import { client } from "./db.js";
+import express from "express";
 import { getWordList } from "./fetchWordList.js";
 
 const app = express();
 
-
-dotenv.config();
 app.use(express.json());
 
-const uri = process.env.MONGODB_URI;
+// connectDB();
 
 // app.set('view engine', 'ejs');
 // app.set('views'('./views/ejs'));
 
-
-
 // app.use(/assets, express.static('../client/dist/assets');
 
 //app.get('/', async (req, res) => {
-  // const htmlText = await fs.readFile ('../client/dist');
-  // res.send(htmlText.toString());
+// const htmlText = await fs.readFile ('../client/dist');
+// res.send(htmlText.toString());
 // });
-
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-
-async function connectDB() {
-  try {    
-    await client.connect();    
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } catch {    
-    console.error("Error:", error);
-  }
-}
-connectDB()
 
 app.post("/highscores", async (req, res) => {
   try {
     await client.connect();
-    
+
     const { name, time, guesses, wordLength, repeate } = req.body;
 
-    if (!name || !time || !guesses || !wordLength || !repeate ) {
-      return res.status(400).json({ error: "All fields must be sent with POST" });
+    if (!name || !time || !guesses || !wordLength || !repeate) {
+      return res
+        .status(400)
+        .json({ error: "All fields must be sent with POST" });
     }
 
     const db = client.db("wordle");
-    const collection = db.collection("highscores"); 
+    const collection = db.collection("highscores");
 
     const newHighscore = {
       name,
@@ -60,12 +39,11 @@ app.post("/highscores", async (req, res) => {
       guesses,
       wordLength,
       repeate,
-      createdAt: new Date()
+      createdAt: new Date(),
     };
 
     await collection.insertOne(newHighscore);
     res.status(201).json({ message: "Highscore saved!", data: newHighscore });
-
   } catch (error) {
     console.error("Error when posting:", error);
     res.status(500).json({ error: "Internal server malfuction" });
@@ -79,13 +57,11 @@ app.get("/highscores", async (req, res) => {
 
     const highscores = await collection.find().toArray();
     res.status(200).json({ message: "Highscore List!", data: highscores });
-
   } catch (error) {
     console.error("Error in getting highscores:", error);
     res.status(500).json({ error: "Internal server malfunction" });
   }
 });
-
 
 app.get("/api/random-word", async (req, res) => {
   try {
@@ -122,4 +98,3 @@ app.get("/api/test-endpoint", (req, res) => {
 });
 
 export default app;
-
