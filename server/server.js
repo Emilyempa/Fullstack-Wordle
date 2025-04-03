@@ -71,6 +71,20 @@ app.post("/highscores", async (req, res) => {
   }
 });
 
+app.get("/highscores", async (req, res) => {
+  try {
+    const db = client.db("wordle");
+    const collection = db.collection("highscores");
+
+    const highscores = await collection.find().toArray();
+    res.status(200).json({ message: "Highscore List!", data: highscores });
+
+  } catch (error) {
+    console.error("Error in getting highscores:", error);
+    res.status(500).json({ error: "Internal server malfunction" });
+  }
+});
+
 
 app.get("/api/random-word", async (req, res) => {
   try {
