@@ -5,7 +5,7 @@ function Footer() {
         <Box component="footer" sx={{
             textAlign: 'center',
             padding: { xs: '0.5rem 0', md: '1rem 0' }, 
-            backgroundColor: '#003049',
+            backgroundColor: '#034C53',
             boxShadow: '0px -4px 6px rgba(0, 0, 0, 0.1)',
             position: 'fixed',
             bottom: 0,
