@@ -6,7 +6,6 @@ const app = express();
 
 app.use(express.json());
 
-// connectDB();
 
 // app.set('view engine', 'ejs');
 // app.set('views'('./views/ejs'));
