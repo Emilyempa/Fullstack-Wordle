@@ -1,11 +1,12 @@
-require('dotenv').config();
-const express = require("express");
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const { getWordList } = require("./fetchWordList.js");
+import dotenv from 'dotenv';
+import express from 'express'
+import { MongoClient, ServerApiVersion } from 'mongodb';
+import { getWordList } from "./fetchWordList.js";;
 
 const app = express();
 const port = 5080;
 
+dotenv.config();
 app.use(express.json());
 
 const uri = process.env.MONGODB_URI;

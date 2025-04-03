@@ -19,6 +19,4 @@ async function getWordList() {
   }
 }
 
-module.exports = {
-    getWordList
-  };
+export { getWordList };
