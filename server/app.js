@@ -19,8 +19,7 @@ app.use(express.json());
 
 app.post("/highscores", async (req, res) => {
   try {
-    await client.connect();
-
+    
     const { name, time, guesses, wordLength, repeate } = req.body;
 
     if (!name || !time || !guesses || !wordLength || !repeate) {
