@@ -1,12 +1,19 @@
+require('dotenv').config();
 const express = require("express");
+const { MongoClient, ServerApiVersion } = require('mongodb');
 const { getWordList } = require("./fetchWordList.js");
+
 const app = express();
 const port = 5080;
+
+app.use(express.json());
+
+const uri = process.env.MONGODB_URI;
 
 // app.set('view engine', 'ejs');
 // app.set('views'('./views/ejs'));
 
-// app.use(express.json());
+
 
 // app.use(/assets, express.static('../client/dist/assets');
 
@@ -14,6 +21,55 @@ const port = 5080;
   // const htmlText = await fs.readFile ('../client/dist');
   // res.send(htmlText.toString());
 // });
+
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+async function connectDB() {
+  try {    
+    await client.connect();    
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } catch {    
+    console.error("Error:", error);
+  }
+}
+connectDB()
+
+app.post("/highscores", async (req, res) => {
+  try {
+    await client.connect();
+    
+    const { name, time, guesses, wordLength, repeate } = req.body;
+
+    if (!name || !time || !guesses || !wordLength || !repeate ) {
+      return res.status(400).json({ error: "All fields must be sent with POST" });
+    }
+
+    const db = client.db("wordle");
+    const collection = db.collection("highscores"); 
+
+    const newHighscore = {
+      name,
+      time,
+      guesses,
+      wordLength,
+      repeate,
+      createdAt: new Date()
+    };
+
+    await collection.insertOne(newHighscore);
+    res.status(201).json({ message: "Highscore saved!", data: newHighscore });
+
+  } catch (error) {
+    console.error("Error when posting:", error);
+    res.status(500).json({ error: "Internal server malfuction" });
+  }
+});
 
 
 app.get("/api/random-word", async (req, res) => {
