@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import { GameLogic } from "../hooks/GameLogic.js";
 import { TextField, Button } from "@mui/material";
+import { GuessHistory } from "./GuessHistory";
 
 function TextBox({ selectedNumber, correctWord }) {
   const { input, error, allGuesses, hasWon, handleChange, handleSubmit } =
@@ -48,34 +49,11 @@ function TextBox({ selectedNumber, correctWord }) {
         Submit
       </Button>
 
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-        {allGuesses.map((guess, guessIndex) => (
-          <Box key={guessIndex} sx={{ display: "flex", gap: 1 }}>
-            {guess.map((item, index) => (
-              <Box
-                key={index}
-                sx={{
-                  color: "white",
-                  backgroundColor: getColor(item.result),
-                  padding: "4px 8px",
-                  borderRadius: "4px",
-                  fontWeight: "bold",
-                  minWidth: "36px",
-                  textAlign: "center",
-                }}
-              >
-                {item.letter}
-              </Box>
-            ))}
-          </Box>
-        ))}
-      </Box>
-
-      {hasWon && (
-        <Box sx={{ color: "success.main", fontWeight: "bold" }}>
-          Congratulations! You guessed correctly!
-        </Box>
-      )}
+      <GuessHistory 
+        allGuesses={allGuesses} 
+        getColor={getColor} 
+        hasWon={hasWon} 
+      />
     </Box>
   );
 }
