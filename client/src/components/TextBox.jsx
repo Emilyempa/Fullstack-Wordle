@@ -6,7 +6,8 @@ import { CompareWords } from "../utils/compareWords.js";
 function TextBox({ selectedNumber, correctWord }) {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
-  const [feedback, setFeedback] = useState([]);
+  const [allGuesses, setAllGuesses] = useState([]);
+  const [hasWon, setHasWon] = useState(false);
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -14,6 +15,8 @@ function TextBox({ selectedNumber, correctWord }) {
   };
 
   const handleSubmit = () => {
+    if (hasWon) return; 
+
     const validationMessage = validateInput(input, selectedNumber);
 
     if (validationMessage) {
@@ -22,9 +25,16 @@ function TextBox({ selectedNumber, correctWord }) {
     }
 
     const comparisonResult = CompareWords(input, correctWord);
-    setFeedback(comparisonResult);
-    
+    const isCorrect = comparisonResult.every(
+      (item) => item.result === "correct"
+    );
+
+    setAllGuesses((prev) => [...prev, comparisonResult]);
     setInput("");
+
+    if (isCorrect) {
+      setHasWon(true);
+    }
   };
 
   const getColor = (result) => {
@@ -34,9 +44,9 @@ function TextBox({ selectedNumber, correctWord }) {
       case "misplaced":
         return "warning.light";
       case "incorrect":
-        return "error.main"; 
+        return "error.main";
       default:
-        return "grey.500"; 
+        return "grey.500";
     }
   };
 
@@ -50,33 +60,34 @@ function TextBox({ selectedNumber, correctWord }) {
       }}
     >
       <TextField
-        label="Type your guess"
+        label={hasWon ? "You won!" : "Type your guess"}
         variant="outlined"
         value={input}
         onChange={handleChange}
         error={!!error}
         helperText={error}
         sx={{ width: "250px" }}
+        disabled={hasWon}
       />
       <Button
         variant="contained"
         color="primary"
         onClick={handleSubmit}
         sx={{ width: "150px" }}
+        disabled={hasWon}
       >
         Submit
       </Button>
-      {feedback.length > 0 && (
-        <Box sx={{ display: "flex", gap: 1 }}>
-          {feedback.map((item, index) => {
-            const bgColor = getColor(item.result);
 
-            return (
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        {allGuesses.map((guess, guessIndex) => (
+          <Box key={guessIndex} sx={{ display: "flex", gap: 1 }}>
+            {guess.map((item, index) => (
               <Box
                 key={index}
                 sx={{
                   color: "white",
-                  backgroundColor: bgColor,
+                  backgroundColor: getColor(item.result),
                   padding: "4px 8px",
                   borderRadius: "4px",
                   fontWeight: "bold",
@@ -86,8 +97,14 @@ function TextBox({ selectedNumber, correctWord }) {
               >
                 {item.letter}
               </Box>
-            );
-          })}
+            ))}
+          </Box>
+        ))}
+      </Box>
+
+      {hasWon && (
+        <Box sx={{ color: "success.main", fontWeight: "bold" }}>
+          Congratulations! You guessed correctly!
         </Box>
       )}
     </Box>
