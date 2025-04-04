@@ -1,8 +1,16 @@
 import { Box } from "@mui/material";
 
-export function GuessHistory({ allGuesses, getColor, hasWon }) {
+export function GuessHistory({ allGuesses, getColor, hasWon, formattedTime }) {
+
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 2,
+      }}
+    >
       {allGuesses.map((guess, guessIndex) => (
         <Box key={guessIndex} sx={{ display: "flex", gap: 1 }}>
           {guess.map((item, index) => (
@@ -35,6 +43,8 @@ export function GuessHistory({ allGuesses, getColor, hasWon }) {
         >
           Congratulations! You guessed correctly in {allGuesses.length}{" "}
           {allGuesses.length === 1 ? "guess" : "guesses"}!
+          <br />
+          Time: {formattedTime}
         </Box>
       )}
     </Box>

@@ -14,6 +14,14 @@ export function GameTimer() {
     }
   }, [isRunning]);
 
+  const formatTime = () => {
+    const mins = Math.floor(elapsedTime / 60);
+    const secs = elapsedTime % 60;
+    return `${mins.toString().padStart(2, "0")}:${secs
+      .toString()
+      .padStart(2, "0")}`;
+  };
+
   const startTimer = () => setIsRunning(true);
   const stopTimer = () => setIsRunning(false);
   const resetTimer = () => {
@@ -21,5 +29,11 @@ export function GameTimer() {
     setElapsedTime(0);
   };
 
-  return { elapsedTime, startTimer, stopTimer, resetTimer };
+  return {
+    elapsedTime,
+    formattedTime: formatTime(),
+    startTimer,
+    stopTimer,
+    resetTimer,
+  };
 }

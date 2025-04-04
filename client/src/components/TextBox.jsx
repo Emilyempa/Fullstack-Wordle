@@ -4,8 +4,15 @@ import { TextField, Button } from "@mui/material";
 import { GuessHistory } from "./GuessHistory";
 
 function TextBox({ selectedNumber, correctWord }) {
-  const { input, error, allGuesses, hasWon, handleChange, handleSubmit } =
-    GameLogic(selectedNumber, correctWord);
+  const {
+    input,
+    error,
+    allGuesses,
+    hasWon,
+    formattedTime,
+    handleChange,
+    handleSubmit,
+  } = GameLogic(selectedNumber, correctWord);
 
   const getColor = (result) => {
     switch (result) {
@@ -49,10 +56,11 @@ function TextBox({ selectedNumber, correctWord }) {
         Submit
       </Button>
 
-      <GuessHistory 
-        allGuesses={allGuesses} 
-        getColor={getColor} 
-        hasWon={hasWon} 
+      <GuessHistory
+        allGuesses={allGuesses}
+        getColor={getColor}
+        hasWon={hasWon}
+        formattedTime={formattedTime}
       />
     </Box>
   );
