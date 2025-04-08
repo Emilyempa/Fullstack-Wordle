@@ -12,6 +12,7 @@ function StartButton({ onStart }) {
         fontWeight: "bold",
         borderRadius: "8px",
         textTransform: "none",
+        m: 2,
       }}
     >
       Start playing
