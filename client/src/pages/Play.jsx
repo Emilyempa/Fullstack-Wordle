@@ -18,8 +18,7 @@ function Play() {
   return (
     <div>
       {!gameStarted && (
-        <>
-          <h1>Play</h1>
+        <>          
           <DropDown numberSelected={setSelectedNumber} />
           <RepeatControl onRepeatChange={handleRepeatChange} />
           <StartButton onStart={() => setGameStarted(true)} />
