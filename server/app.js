@@ -7,8 +7,7 @@ const app = express();
 app.use(express.json());
 
 
-// app.set('view engine', 'ejs');
-// app.set('views'('./views/ejs'));
+app.set('view engine', 'ejs');
 
 // app.use(/assets, express.static('../client/dist/assets');
 
