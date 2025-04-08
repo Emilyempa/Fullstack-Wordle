@@ -21,16 +21,17 @@
     </header>
     <h2>Highscore List</h2>
     <main>
-        <ul>
+        <ol>
             <% highscores.forEach(score=> { %>
                 <li>
-                    <%= score.name %> - Time: <%= score.time %> sek,
-                    Number of Guesses: <%= score.guesses %>,
-                    Number of Letters: <%= score.wordLength %>,
-                    Repeat letters: <%= score.repeate %>
+                    <span class="score-name"><%= score.name %></span> - 
+                    Time: <span class="score-label"> <%= score.time %> sec,</span> 
+                    Number of Guesses: <span class="score-label"><%= score.guesses %></span>, 
+                    Number of Letters: <span class="score-label"><%= score.wordLength %></span>, 
+                    Repeat letters: <span class="score-label"><%= score.repeate %></span>
                 </li>
                 <% }) %>
-        </ul>
+        </ol>
     </main>
     <footer class="server-footer">
         &copy; <%= new Date().getFullYear() %> Emily's Wordle App

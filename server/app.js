@@ -64,7 +64,14 @@ app.get("/highscores", async (req, res) => {
     const collection = db.collection("highscores");
 
     const highscores = await collection.find().toArray();
-    res.status(200).render("index", { highscores });
+    res.status(200).render("index", { 
+      highscores,
+      pages: [
+        { label: 'Play', path: '/' },
+        { label: 'About', path: '/about' },
+        { label: 'Highest Scores', path: '/highest-scores' }
+      ] 
+    });
 
   } catch (error) {
     console.error("Error in getting highscores:", error);
