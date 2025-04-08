@@ -1,6 +1,11 @@
 import { client } from "./db.js";
 import express from "express";
 import { getWordList } from "./fetchWordList.js";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -8,6 +13,12 @@ app.use(express.json());
 
 
 app.set('view engine', 'ejs');
+app.use(express.static(join(__dirname, 'public')));
+
+// app.use(express.static("public/styles.css"));
+// app.use(express.static('server/public'));
+
+// app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(/assets, express.static('../client/dist/assets');
 
@@ -53,7 +64,7 @@ app.get("/highscores", async (req, res) => {
     const collection = db.collection("highscores");
 
     const highscores = await collection.find().toArray();
-    res.render("index", { highscores });
+    res.status(200).render("index", { highscores });
 
   } catch (error) {
     console.error("Error in getting highscores:", error);
