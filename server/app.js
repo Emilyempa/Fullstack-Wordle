@@ -53,7 +53,8 @@ app.get("/highscores", async (req, res) => {
     const collection = db.collection("highscores");
 
     const highscores = await collection.find().toArray();
-    res.status(200).json({ message: "Highscore List!", data: highscores });
+    res.render("index", { highscores });
+
   } catch (error) {
     console.error("Error in getting highscores:", error);
     res.status(500).json({ error: "Internal server malfunction" });
@@ -85,9 +86,6 @@ app.get("/api/random-word", async (req, res) => {
   }
 });
 
-app.get("/", (req, res) => {
-  res.send("<h1>Hello, server!</h1>");
-});
 
 app.get("/api/test-endpoint", (req, res) => {
   const resMessage = { message: "Hello from the server!" };
