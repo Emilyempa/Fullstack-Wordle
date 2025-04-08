@@ -11,12 +11,12 @@
 
 <body>
     <header class="server-header">
-        <span class="material-symbols-outlined">lightbulb</span>               
+        <span class="material-symbols-outlined">lightbulb</span>
         <h1>Wordle</h1>
         <nav class="server-nav">
             <a href="/">PLAY</a>
             <a href="/about">ABOUT</a>
-            <a href="/highscores">HIGHEST SCORES</a>            
+            <a href="/highscores">HIGHEST SCORES</a>
         </nav>
     </header>
     <h2>Highscore List</h2>
@@ -24,11 +24,21 @@
         <ol>
             <% highscores.forEach(score=> { %>
                 <li>
-                    <span class="score-name"><%= score.name %></span> - 
-                    Time: <span class="score-label"> <%= score.time %> sec,</span> 
-                    Number of Guesses: <span class="score-label"><%= score.guesses %></span>, 
-                    Number of Letters: <span class="score-label"><%= score.wordLength %></span>, 
-                    Repeat letters: <span class="score-label"><%= score.repeate %></span>
+                    <span class="score-name">
+                        <%= score.name %>
+                    </span> -
+                    Time: <span class="score-label">
+                        <%= score.time %> sec,
+                    </span>
+                    Number of Guesses: <span class="score-label">
+                        <%= score.guesses %>
+                    </span>,
+                    Number of Letters: <span class="score-label">
+                        <%= score.wordLength %>
+                    </span>,
+                    Repeat letters: <span class="score-label">
+                        <%= score.repeate %>
+                    </span>
                 </li>
                 <% }) %>
         </ol>
@@ -37,5 +47,4 @@
         &copy; <%= new Date().getFullYear() %> Emily's Wordle App
     </footer>
 </body>
-
 </html>
