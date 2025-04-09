@@ -37,7 +37,7 @@ function HighscoreInput({ handleSubmit }) {
           Save
         </Button>
         <Button type="button" variant="outlined" color="secondary" size="medium"
-        onClick={() => window.location.reload()}>
+            onClick={() => window.location.reload()}>
             Exit
         </Button>
       </Box>
