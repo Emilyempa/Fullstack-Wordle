@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Box, Typography, TextField, Button, Paper } from "@mui/material";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
-function HighscoreInput() {
+function HighscoreInput({ onSave }) {
   const [name, setName] = useState("");
   const [saved, setSaved] = useState(false);
 
   const handleSave = (e) => {
     e.preventDefault();
     setSaved(true);
+    onSave(name);
     setName("");
   };
 
@@ -51,7 +53,7 @@ function HighscoreInput() {
           size="medium"
           disabled={saved}
         >
-          {saved ? "Saved!" : "Save"}
+           {saved ? <>Saved! <CheckCircleIcon fontSize="small" sx={{ ml: 1 }} /></> : "Save"}
         </Button>
         <Button
           type="button"
