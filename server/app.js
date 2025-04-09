@@ -63,7 +63,7 @@ app.get("/highscores", async (req, res) => {
     const db = client.db("wordle");
     const collection = db.collection("highscores");
 
-    const highscores = await collection.find().toArray();
+    const highscores = await collection.find().sort({ guesses: 1, time: 1, wordLength: -1, repeate: 1}).toArray();
     res.status(200).render("index", { 
       highscores,
       pages: [

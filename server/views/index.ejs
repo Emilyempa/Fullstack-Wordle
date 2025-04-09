@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <title>Highscores</title>
 </head>
@@ -26,17 +26,19 @@
                 <li>
                     <span class="score-name">
                         <%= score.name %>
-                    </span> -
-                    Time: <span class="score-label">
+                    </span> 
+                    - Number of Guesses:
+                    <span class="score-label">
+                        <%= score.guesses %>
+                    </span>     
+                    Time:<span class="score-label">
                         <%= score.time %> sec,
                     </span>
-                    Number of Guesses: <span class="score-label">
-                        <%= score.guesses %>
-                    </span>,
-                    Number of Letters: <span class="score-label">
+                    </span>, Number of Letters:
+                    <span class="score-label">
                         <%= score.wordLength %>
-                    </span>,
-                    Repeat letters: <span class="score-label">
+                    </span>, Repeat
+                    letters: <span class="score-label">
                         <%= score.repeate %>
                     </span>
                 </li>
@@ -47,4 +49,5 @@
         &copy; <%= new Date().getFullYear() %> Emily's Wordle App
     </footer>
 </body>
+
 </html>
