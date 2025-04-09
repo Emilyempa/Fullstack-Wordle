@@ -1,9 +1,13 @@
 export const fetchApiData = async (endpoint, options = {}) => {
-  const abortController = new AbortController();
-  const signal = abortController.signal;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+  const signal = controller.signal;
 
   try {
     const res = await fetch(endpoint, { ...options, signal });
+
+    clearTimeout(timeout);
+    
     if (!res.ok) {
       throw new Error(`HTTP error! Status: ${res.status}`);
     }
@@ -11,9 +15,7 @@ export const fetchApiData = async (endpoint, options = {}) => {
   } catch (error) {
     console.error(`Error fetching from ${endpoint}:`, error);
     throw error;
-  } finally {
-    abortController.abort();
-  }
+  } 
 };
 
 export const fetchWords = async (length, allowRepeats) => {
