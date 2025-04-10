@@ -1,10 +1,8 @@
 import { Box } from "@mui/material";
-import HighscoreInput from "./HighscoreInput.jsx";  
+ 
 
 export function GuessHistory({ allGuesses, getColor, hasWon, formattedTime }) {
-  const handleSave = (name) => {
-    console.log("Saved name:", name);
-  };
+ 
   return (
     <Box
       sx={{
@@ -48,7 +46,6 @@ export function GuessHistory({ allGuesses, getColor, hasWon, formattedTime }) {
           {allGuesses.length === 1 ? "guess" : "guesses"}!
           <br />
           Time: {formattedTime}
-          <HighscoreInput onSave={handleSave} />
         </Box>
       )}
     </Box>
