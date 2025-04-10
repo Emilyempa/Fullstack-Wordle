@@ -15,10 +15,6 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 app.use(express.static(join(__dirname, 'public')));
 
-// app.use(express.static("public/styles.css"));
-// app.use(express.static('server/public'));
-
-// app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use(/assets, express.static('../client/dist/assets');
 
@@ -87,7 +83,7 @@ app.get("/api/random-word", async (req, res) => {
     const filteredWords = wordList.filter((word) => {
       const hasRepeats = new Set(word).size !== word.length;
       return (
-        word.length === parseInt(length) &&
+        word.length === Number(length) &&
         (allowRepeats === "true" || !hasRepeats)
       );
     });
@@ -97,7 +93,7 @@ app.get("/api/random-word", async (req, res) => {
         ? filteredWords[Math.floor(Math.random() * filteredWords.length)]
         : "No word found";
 
-    res.json({ word: randomWord });
+    res.status(200).json({ word: randomWord });
   } catch (error) {
     console.error("Error in /api/random-word:", error);
     res.status(500).json({ error: "Failed to get random word" });
@@ -105,9 +101,9 @@ app.get("/api/random-word", async (req, res) => {
 });
 
 
-app.get("/api/test-endpoint", (req, res) => {
-  const resMessage = { message: "Hello from the server!" };
-  res.json(resMessage);
-});
+// app.get("/api/test-endpoint", (req, res) => {
+//   const resMessage = { message: "Hello from the server!" };
+//   res.json(resMessage);
+// });
 
 export default app;
