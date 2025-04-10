@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
- 
+import HighscoreInput from "./HighscoreInput";
 
 export function GuessHistory({ allGuesses, getColor, hasWon, formattedTime }) {
- 
   return (
     <Box
       sx={{
@@ -46,6 +45,7 @@ export function GuessHistory({ allGuesses, getColor, hasWon, formattedTime }) {
           {allGuesses.length === 1 ? "guess" : "guesses"}!
           <br />
           Time: {formattedTime}
+          <HighscoreInput />
         </Box>
       )}
     </Box>
