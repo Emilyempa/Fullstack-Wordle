@@ -1,16 +1,16 @@
-// src/hooks/useWordleGame.js
 import { useState } from "react";
 import { validateInput } from "../utils/ValidateInput";
 import { CompareWords } from "../utils/compareWords";
-import { GameTimer } from "./GameTimer";
+import { useGameTimer } from "./useGameTimer";
 
-export function GameLogic(selectedNumber, correctWord) {
+export function useGameLogic(selectedNumber, correctWord) {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
   const [allGuesses, setAllGuesses] = useState([]);
   const [hasWon, setHasWon] = useState(false);
 
-  const { elapsedTime, formattedTime, startTimer, stopTimer, resetTimer } = GameTimer();
+  const { elapsedTime, formattedTime, startTimer, stopTimer, resetTimer } =
+    useGameTimer();
 
   const handleChange = (value) => {
     setInput(value);
@@ -27,8 +27,8 @@ export function GameLogic(selectedNumber, correctWord) {
     }
 
     if (allGuesses.length === 0) {
-        startTimer();
-      }
+      startTimer();
+    }
 
     const comparisonResult = CompareWords(input, correctWord);
     const isCorrect = comparisonResult.every(
@@ -55,6 +55,6 @@ export function GameLogic(selectedNumber, correctWord) {
     formattedTime,
     handleChange,
     handleSubmit,
-    resetTimer
+    resetTimer,
   };
 }

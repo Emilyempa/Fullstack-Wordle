@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function GameTimer() {
+export function useGameTimer() {
   const [isRunning, setIsRunning] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
 

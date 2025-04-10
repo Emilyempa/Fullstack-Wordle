@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { GameLogic } from "../hooks/GameLogic.js";
+import { useGameLogic } from "../hooks/useGameLogic.js";
 import { TextField, Button } from "@mui/material";
 import { GuessHistory } from "./GuessHistory";
 
@@ -12,7 +12,7 @@ function TextBox({ selectedNumber, correctWord }) {
     formattedTime,
     handleChange,
     handleSubmit,
-  } = GameLogic(selectedNumber, correctWord);
+  } = useGameLogic(selectedNumber, correctWord);
 
   const getColor = (result) => {
     switch (result) {
