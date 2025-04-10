@@ -45,7 +45,7 @@ export function GuessHistory({ allGuesses, getColor, hasWon, formattedTime }) {
           {allGuesses.length === 1 ? "guess" : "guesses"}!
           <br />
           Time: {formattedTime}
-          <HighscoreInput />
+          <HighscoreInput onSave={(name) => { console.log("Saving name:", name); }} />
         </Box>
       )}
     </Box>
