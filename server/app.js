@@ -1,8 +1,8 @@
 import { client } from "./db.js";
 import express from "express";
 import { getWordList } from "./fetchWordList.js";
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,10 +11,8 @@ const app = express();
 
 app.use(express.json());
 
-
-app.set('view engine', 'ejs');
-app.use(express.static(join(__dirname, 'public')));
-
+app.set("view engine", "ejs");
+app.use(express.static(join(__dirname, "public")));
 
 // app.use(/assets, express.static('../client/dist/assets');
 
@@ -23,12 +21,42 @@ app.use(express.static(join(__dirname, 'public')));
 // res.send(htmlText.toString());
 // });
 
+// app.post("/highscores", async (req, res) => {
+//   try {
+//     const { name } = req.body;
+
+//     if (!name) {
+//       return res.status(400).json({ error: "Name is required" });
+//     }
+
+//     const db = client.db("wordle");
+//     const collection = db.collection("highscores");
+
+//     const newHighscore = {
+//       name,
+//       createdAt: new Date(),
+//     };
+
+//     await collection.insertOne(newHighscore);
+//     res.status(201).json({ message: "Highscore saved!", data: newHighscore });
+//   } catch (error) {
+//     console.error("Error when posting:", error);
+//     res.status(500).json({ error: "Internal server malfunction" });
+//   }
+// });
+
+
 app.post("/highscores", async (req, res) => {
   try {
-    
-    const { name, time, guesses, wordLength, repeate } = req.body;
+    const { name, time, guesses, wordLength, repeat } = req.body;
 
-    if (!name || !time || !guesses || !wordLength || !repeate) {
+    if (
+      !name ||
+      time === undefined ||
+      guesses === undefined ||
+      wordLength === undefined ||
+      repeat === undefined
+    ) {
       return res
         .status(400)
         .json({ error: "All fields must be sent with POST" });
@@ -42,7 +70,7 @@ app.post("/highscores", async (req, res) => {
       time,
       guesses,
       wordLength,
-      repeate,
+      repeat,
       createdAt: new Date(),
     };
 
@@ -54,26 +82,30 @@ app.post("/highscores", async (req, res) => {
   }
 });
 
+
 app.get("/highscores", async (req, res) => {
   try {
     const db = client.db("wordle");
     const collection = db.collection("highscores");
 
-    const highscores = await collection.find().sort({ guesses: 1, time: 1, wordLength: -1, repeate: 1}).toArray();
-    res.status(200).render("index", { 
+    const highscores = await collection
+      .find()
+      .sort({ guesses: 1, time: 1, wordLength: -1, repeat: 1 })
+      .toArray();
+    res.status(200).render("index", {
       highscores,
       pages: [
-        { label: 'Play', path: '/' },
-        { label: 'About', path: '/about' },
-        { label: 'Highest Scores', path: '/highest-scores' }
-      ] 
+        { label: "Play", path: "/" },
+        { label: "About", path: "/about" },
+        { label: "Highest Scores", path: "/highest-scores" },
+      ],
     });
-
   } catch (error) {
     console.error("Error in getting highscores:", error);
     res.status(500).json({ error: "Internal server malfunction" });
   }
 });
+
 
 app.get("/api/random-word", async (req, res) => {
   try {
@@ -99,7 +131,6 @@ app.get("/api/random-word", async (req, res) => {
     res.status(500).json({ error: "Failed to get random word" });
   }
 });
-
 
 // app.get("/api/test-endpoint", (req, res) => {
 //   const resMessage = { message: "Hello from the server!" };
