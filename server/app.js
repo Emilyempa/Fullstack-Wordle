@@ -3,6 +3,7 @@ import express from "express";
 import { getWordList } from "./fetchWordList.js";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
+import path from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -12,39 +13,17 @@ const app = express();
 app.use(express.json());
 
 app.set("view engine", "ejs");
+
 app.use(express.static(join(__dirname, "public")));
+app.use(express.static('../client/dist'));
 
-// app.use(/assets, express.static('../client/dist/assets');
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
-//app.get('/', async (req, res) => {
-// const htmlText = await fs.readFile ('../client/dist');
-// res.send(htmlText.toString());
-// });
-
-// app.post("/highscores", async (req, res) => {
-//   try {
-//     const { name } = req.body;
-
-//     if (!name) {
-//       return res.status(400).json({ error: "Name is required" });
-//     }
-
-//     const db = client.db("wordle");
-//     const collection = db.collection("highscores");
-
-//     const newHighscore = {
-//       name,
-//       createdAt: new Date(),
-//     };
-
-//     await collection.insertOne(newHighscore);
-//     res.status(201).json({ message: "Highscore saved!", data: newHighscore });
-//   } catch (error) {
-//     console.error("Error when posting:", error);
-//     res.status(500).json({ error: "Internal server malfunction" });
-//   }
-// });
-
+app.get('/about', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 
 app.post("/highscores", async (req, res) => {
   try {
@@ -108,6 +87,7 @@ app.get("/highscores", async (req, res) => {
 
 
 app.get("/api/random-word", async (req, res) => {
+  console.log("Received request for random word:", req.query);
   try {
     const { length, allowRepeats } = req.query;
     const wordList = await getWordList();
@@ -132,9 +112,5 @@ app.get("/api/random-word", async (req, res) => {
   }
 });
 
-// app.get("/api/test-endpoint", (req, res) => {
-//   const resMessage = { message: "Hello from the server!" };
-//   res.json(resMessage);
-// });
 
 export default app;
