@@ -18,11 +18,11 @@ app.use(express.static(join(__dirname, "public")));
 app.use(express.static('../client/dist'));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.status(200).sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.get('/about', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+  res.status(200).sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
 
 app.post("/highscores", async (req, res) => {
