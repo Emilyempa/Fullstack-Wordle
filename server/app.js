@@ -86,8 +86,7 @@ app.get("/highscores", async (req, res) => {
 });
 
 
-app.get("/api/random-word", async (req, res) => {
-  console.log("Received request for random word:", req.query);
+app.get("/api/random-word", async (req, res) => {  
   try {
     const { length, allowRepeats } = req.query;
     const wordList = await getWordList();
