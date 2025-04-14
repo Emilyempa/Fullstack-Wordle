@@ -7,10 +7,14 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-      target: 'http://localhost:5080',
-      changeOrigin: true,
-      secure: false,
+        target: 'http://localhost:5080',
+        changeOrigin: true,
+        secure: false,
       },
     },
+  },
+  build: {
+    outDir: '../client/dist', 
+    emptyOutDir: true,
   },
 })
