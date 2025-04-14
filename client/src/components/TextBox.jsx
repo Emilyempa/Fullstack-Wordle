@@ -2,21 +2,20 @@ import { Box } from "@mui/material";
 import { useGameLogic } from "../hooks/useGameLogic.js";
 import { TextField, Button } from "@mui/material";
 import { GuessHistory } from "./GuessHistory";
-import { useData } from "../hooks/useData"; 
+import { useData } from "../hooks/useData";
 
-function TextBox({ selectedNumber, correctWord }) {
+function TextBox({ selectedNumber, correctWord, allowRepeats }) {
   const {
     input,
     error,
     allGuesses,
-    hasWon, 
+    hasWon,
     formattedTime,
     handleChange,
     handleSubmit,
   } = useGameLogic(selectedNumber, correctWord);
 
- 
-  const { sendGameData, setPlayerName } = useData();   
+  const { sendGameData, setPlayerName } = useData();
 
   const getColor = (result) => {
     switch (result) {
@@ -60,14 +59,15 @@ function TextBox({ selectedNumber, correctWord }) {
         Submit
       </Button>
 
-      
       <GuessHistory
         allGuesses={allGuesses}
         getColor={getColor}
         hasWon={hasWon}
         formattedTime={formattedTime}
-        sendGameData={sendGameData}       
-        setPlayerName={setPlayerName}     
+        sendGameData={sendGameData}
+        setPlayerName={setPlayerName}
+        selectedNumber={selectedNumber}
+        allowRepeats={allowRepeats}
       />
     </Box>
   );

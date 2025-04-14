@@ -18,7 +18,7 @@ function Play() {
   return (
     <div>
       {!gameStarted && (
-        <>          
+        <>
           <DropDown numberSelected={setSelectedNumber} />
           <RepeatControl onRepeatChange={handleRepeatChange} />
           <StartButton onStart={() => setGameStarted(true)} />
@@ -27,7 +27,11 @@ function Play() {
 
       {gameStarted && (
         <>
-          <TextBox selectedNumber={selectedNumber} correctWord={correctWord} />
+          <TextBox
+            selectedNumber={selectedNumber}
+            correctWord={correctWord}
+            allowRepeats={allowRepeats}
+          />
           <WordList
             length={selectedNumber}
             allowRepeats={allowRepeats}

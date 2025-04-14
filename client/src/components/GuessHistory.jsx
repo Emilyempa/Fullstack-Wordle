@@ -8,6 +8,8 @@ export function GuessHistory({
   formattedTime,
   sendGameData,
   setPlayerName,
+  selectedNumber,
+  allowRepeats,
 }) {
   return (
     <Box
@@ -55,7 +57,13 @@ export function GuessHistory({
           <HighscoreInput
             onSave={(name) => {
               setPlayerName(name);
-              sendGameData();
+              sendGameData({
+                name: name,
+                guesses: allGuesses.length,
+                time: formattedTime,
+                wordLength: selectedNumber,
+                repeat: allowRepeats,
+              });
             }}
           />
         </Box>

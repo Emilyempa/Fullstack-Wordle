@@ -6,7 +6,7 @@ export const useData = () => {
     name: "",
     time: 0,
     guesses: 0,
-    WordLength: 0,
+    wordLength: 0,
     repeat: false,
   });
 
@@ -24,14 +24,20 @@ export const useData = () => {
     });
   };
 
-  const sendGameData = async () => {
+  const sendGameData = async (extraData = {}) => {
+    setGameData((prev) => {
+      const updatedData = { ...prev, ...extraData };
+      console.log("Preparing to send game data:", updatedData);
+      return updatedData;
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
+
+    const latestGameData = { ...gameData, ...extraData };
+    console.log("Sending latest game data:", latestGameData);
+
     try {
-      setGameData((prev) => {
-        console.log("Preparing to send game data:", prev);
-        return prev; 
-      });
-      
-      const response = await postApiData("/highscores", gameData);
+      const response = await postApiData("/highscores", latestGameData);
       console.log("Highscore was saved successfully:", response);
     } catch (error) {
       console.error("Error saving game data:", error);
