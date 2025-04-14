@@ -1,4 +1,6 @@
 export const postApiData = async (endpoint, data) => {
+  // const BACKEND_BASE_URL = "http://localhost:5080"; 
+  // const fullUrl = `${BACKEND_BASE_URL}${endpoint}`;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 5000);
 
