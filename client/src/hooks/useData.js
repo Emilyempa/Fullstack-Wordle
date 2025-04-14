@@ -26,15 +26,13 @@ export const useData = () => {
 
   const sendGameData = async (extraData = {}) => {
     setGameData((prev) => {
-      const updatedData = { ...prev, ...extraData };
-      console.log("Preparing to send game data:", updatedData);
+      const updatedData = { ...prev, ...extraData };      
       return updatedData;
     });
 
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    const latestGameData = { ...gameData, ...extraData };
-    console.log("Sending latest game data:", latestGameData);
+    const latestGameData = { ...gameData, ...extraData };    
 
     try {
       const response = await postApiData("/highscores", latestGameData);
