@@ -8,8 +8,17 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Play from '/src/pages/Play.jsx';
 import About from '/src/pages/About.jsx';
 import NotFound from '/src/pages/NotFound.jsx';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    document.title = "Wordle App";
+    const link = document.querySelector("link[rel~='icon']");
+  if (link) {
+    link.href = "/favicon.png";
+  }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
