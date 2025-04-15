@@ -10,7 +10,8 @@
     "build": "cd client && npm run build",
     "start": "npm run build && cd server && npm start",
     "dev": "concurrently \"npm run client\" \"npm run server\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "cy:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Emilyempa/Fullstack-Wordle/issues"
   },
-  "homepage": "https://github.com/Emilyempa/Fullstack-Wordle#readme"
+  "homepage": "https://github.com/Emilyempa/Fullstack-Wordle#readme",
+  "devDependencies": {
+    "cypress": "^14.3.0"
+  }
 }
