@@ -17,10 +17,6 @@ app.set("view engine", "ejs");
 app.use(express.static(join(__dirname, "public")));
 app.use(express.static('../client/dist'));
 
-app.use((req, res) => {
-  res.status(404).render("404", { title: "404 - Page Not Found" });
-});
-
 app.get('/', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../client/dist/index.html'));
 });
@@ -113,6 +109,10 @@ app.get("/api/random-word", async (req, res) => {
     console.error("Error in /api/random-word:", error);
     res.status(500).json({ error: "Failed to get random word" });
   }
+});
+
+app.use((req, res) => {
+  res.status(404).render("404", { title: "404 - Page Not Found" });
 });
 
 
