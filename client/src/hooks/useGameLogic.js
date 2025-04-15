@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { validateInput } from "../utils/ValidateInput";
-import { CompareWords } from "../utils/compareWords";
+import { CompareWords } from "../utils/CompareWords";
 import { useGameTimer } from "./useGameTimer";
 
 export function useGameLogic(selectedNumber, correctWord) {
@@ -13,7 +13,8 @@ export function useGameLogic(selectedNumber, correctWord) {
     useGameTimer();
 
   const handleChange = (value) => {
-    setInput(value);
+    const trimmedValue = value.trim(); 
+    setInput(trimmedValue);
     setError("");
   };
 
