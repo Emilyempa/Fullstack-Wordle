@@ -64,3 +64,16 @@ ol{
   color: white;
   font-size: 0.875rem;
 }
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  height: 100vh; 
+}
+
+.error-image {  
+  width: 70%;
+  max-width: 400px; 
+  height: auto; 
+}
