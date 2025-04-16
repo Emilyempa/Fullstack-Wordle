@@ -27,18 +27,18 @@ cd wordle-inspired-game
 npm install
 npm start
 
-and npm test or npm run cy:open, for cypress tests
+npm test or npm run cy:open, for cypress tests
 
-## 🔗 Database Setup
+🔗 Database Setup
 
-This project relies on a **MongoDB database** for storing highscores. If you clone this repository, you need to set up your own MongoDB instance and provide the correct connection string.
+This project relies on a MongoDB database for storing highscores. If you clone this repository, you need to set up your own MongoDB instance and provide the correct connection string.
 
-### Steps to configure the database:
+Steps to configure the database:
 
-1. **Create a MongoDB database**  
+1. Create a MongoDB database 
    You can use MongoDB Atlas (cloud database) or set up a local instance.
 
-2. **Add your connection string**  
+2. Add your connection string  
    Create a `.env` file in the project root and add:
    ```env
    MONGODB_URI=your-mongodb-connection-string-here
