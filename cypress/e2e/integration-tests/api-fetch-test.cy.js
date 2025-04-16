@@ -30,9 +30,9 @@ describe("wordle API test", () => {
     cy.intercept("GET", "/api/random-word?length=8&allowRepeats=true").as(
       "fetchWordTrue"
     );
-       
+
     cy.get("#number-select").should("contain.text", "2").click();
-    cy.get('[data-value="8"]').click();    
+    cy.get('[data-value="8"]').click();
     cy.get(":nth-child(1) > .MuiButton-root").click();
     cy.wait(1000);
     cy.wait("@fetchWordTrue").then((interception) => {
@@ -42,5 +42,3 @@ describe("wordle API test", () => {
     });
   });
 });
-
-

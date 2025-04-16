@@ -7,9 +7,9 @@ describe("wordle test with mock API response and Database POST", () => {
       body: { word: "test" },
     }).as("mockedWord");
 
-    cy.intercept('POST', '/highscores', {
-      statusCode: 201
-    }).as('postHighscore');
+    cy.intercept("POST", "/highscores", {
+      statusCode: 201,
+    }).as("postHighscore");
   });
 
   it("displays one dropdown, 2 radiobuttons and start play button", () => {
@@ -80,9 +80,9 @@ describe("wordle test with mock API response and Database POST", () => {
     cy.get(
       ":nth-child(1) > :nth-child(1) > .css-5uxyq9 > :nth-child(3) > :nth-child(4)"
     ).should("have.css", "background-color", "rgb(46, 125, 50)");
-    cy.contains('Congratulations! You guessed correctly in 3 guesses!')
-    cy.get('input').eq(1).click().type('Olle')
-    cy.get('.MuiPaper-root > .MuiBox-root > .MuiButton-contained').click()
-    cy.wait('@postHighscore').its('response.statusCode').should('eq', 201);
+    cy.contains("Congratulations! You guessed correctly in 3 guesses!");
+    cy.get("input").eq(1).click().type("Olle");
+    cy.get(".MuiPaper-root > .MuiBox-root > .MuiButton-contained").click();
+    cy.wait("@postHighscore").its("response.statusCode").should("eq", 201);
   });
 });
