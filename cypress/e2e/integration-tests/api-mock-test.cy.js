@@ -1,4 +1,4 @@
-describe("e2e wordle test with mock API response", () => {
+describe("wordle test with mock API response and Database POST", () => {
   beforeEach(() => {
     cy.visit("/");
 
