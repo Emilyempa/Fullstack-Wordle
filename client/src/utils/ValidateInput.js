@@ -1,16 +1,21 @@
 export function validateInput(value, expectedLength) {
-  let input = value.trim();
-  input = input.replace(/[^a-zA-Z]/g, "");
 
-  if (!input) {
-    return "Input is empty or contained input thats not allowed, please try again.";
+  if (!value || value.trim().length === 0) {
+    return "Please enter a guess before submitting.";
+  }
+  
+  const cleanedInput = value.replace(/\s/g, "");
+  const onlyLetters = /^[a-zA-Z]+$/.test(cleanedInput);
+
+  if (!onlyLetters) {
+    return "Input contains invalid characters, only letters A-Z are allowed.";
   }
 
-  if (input.length !== expectedLength) {
+  if (cleanedInput.length !== expectedLength) {
     return `Your guess must be ${expectedLength} letters long.`;
   }
 
-  return "";
+  return ""; 
 }
 
 export default validateInput;
