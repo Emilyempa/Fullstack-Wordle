@@ -23,7 +23,7 @@ To get started, clone the repository and install dependencies:
 
 ```bash
 git clone <repository-url>
-cd wordle-inspired-game
+cd Fullstack-Wordle
 npm install
 npm start
 
