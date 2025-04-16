@@ -112,6 +112,17 @@ function About() {
                 }
               />
             </ListItem>
+            <ListItem>
+              <ListItemText
+                primary={
+                  <>
+                    <b>Testing:</b> Comprehensive end-to-end testing implemented
+                    with Cypress, covering API interactions, game logic,
+                    navigation flows, and database operations.
+                  </>
+                }
+              />
+            </ListItem>
           </List>
 
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -144,9 +155,57 @@ function About() {
               <ListItemText
                 primary={
                   <>
-                    <b>Informative Pages:</b> The app includes a static “About”
+                    <b>Informative Pages:</b> The app includes a static "About"
                     page explaining the project and a server-side rendered
                     highscore list.
+                  </>
+                }
+              />
+            </ListItem>
+            <ListItem>
+              <ListItemText
+                primary={
+                  <>
+                    <b>Comprehensive Testing:</b> The application includes
+                    thorough Cypress tests that verify:
+                    <List dense sx={{ pl: 2 }}>
+                      <ListItem>
+                        <ListItemText
+                          primary="• API endpoints for fetching words with different parameters"
+                          secondary="(length and repeat letter settings)"
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary="• Game logic and UI feedback"
+                          secondary="(letter coloring based on correct/incorrect positions)"
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary="• Navigation flows between all pages"
+                          secondary="(home, about, and highscores pages)"
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary="• Database operations"
+                          secondary="(successful highscore submissions)"
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary="• Mock API responses"
+                          secondary="(for reliable and consistent testing)"
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary="• Page content verification"
+                          secondary="(ensuring correct elements render on each page)"
+                        />
+                      </ListItem>
+                    </List>
                   </>
                 }
               />
@@ -165,7 +224,7 @@ function About() {
             This project demonstrates fullstack development skills, showcasing
             both frontend and backend integration along with database
             management. It was created to explore best practices in modern web
-            development.
+            development including comprehensive testing strategies.
           </Typography>
 
           <Typography
