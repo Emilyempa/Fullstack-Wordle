@@ -15,14 +15,14 @@ app.use(express.json());
 app.set("view engine", "ejs");
 
 app.use(express.static(join(__dirname, "public")));
-app.use(express.static('../client/dist'));
+app.use(express.static("../client/dist"));
 
-app.get('/', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../client/dist/index.html'));
+app.get("/", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
-app.get('/about', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../client/dist/index.html'));
+app.get("/about", (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, "../client/dist/index.html"));
 });
 
 app.post("/highscores", async (req, res) => {
@@ -61,7 +61,6 @@ app.post("/highscores", async (req, res) => {
   }
 });
 
-
 app.get("/highscores", async (req, res) => {
   try {
     const db = client.db("wordle");
@@ -71,22 +70,14 @@ app.get("/highscores", async (req, res) => {
       .find()
       .sort({ guesses: 1, time: 1, wordLength: -1, repeat: 1 })
       .toArray();
-    res.status(200).render("index", {
-      highscores,
-      pages: [
-        { label: "Play", path: "/" },
-        { label: "About", path: "/about" },
-        { label: "Highest Scores", path: "/highest-scores" },
-      ],
-    });
+    res.status(200).render("index", { highscores });
   } catch (error) {
     console.error("Error in getting highscores:", error);
     res.status(500).json({ error: "Internal server malfunction" });
   }
 });
 
-
-app.get("/api/random-word", async (req, res) => {  
+app.get("/api/random-word", async (req, res) => {
   try {
     const { length, allowRepeats } = req.query;
     const wordList = await getWordList();
@@ -114,6 +105,5 @@ app.get("/api/random-word", async (req, res) => {
 app.use((req, res) => {
   res.status(404).render("404", { title: "404 - Page Not Found" });
 });
-
 
 export default app;
