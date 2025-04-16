@@ -38,7 +38,8 @@ instance and provide the correct connection string.
 Steps to configure the database:
 
 1. Create a MongoDB database 
-   You can use MongoDB Atlas (cloud database) or set up a local instance.
+   You can use MongoDB Atlas (cloud database) 
+   or set up a local instance.
 
 2. Add your connection string  
    Create a `.env` file in the project root and add:
