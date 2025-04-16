@@ -118,7 +118,7 @@ function About() {
                   <>
                     <b>Testing:</b> Comprehensive end-to-end testing implemented
                     with Cypress, covering API interactions, game logic,
-                    navigation flows, and database operations.
+                    navigation flows, error handling and database operations.
                   </>
                 }
               />
@@ -191,6 +191,12 @@ function About() {
                         <ListItemText
                           primary="• Database operations"
                           secondary="(successful highscore submissions)"
+                        />
+                      </ListItem>
+                      <ListItem>
+                        <ListItemText
+                          primary="• Error handling and input validation"
+                          secondary="(tests empty submissions, invalid characters, and incorrect word lengths)"
                         />
                       </ListItem>
                       <ListItem>
