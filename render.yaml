@@ -5,7 +5,7 @@ services:
     region: frankfurt
     plan: free
     buildCommand: npm install
-    startCommand: node node backend/server.js
+    startCommand: node backend/server.js
     envVars:
       - key: MONGODB_URI
         sync: false
