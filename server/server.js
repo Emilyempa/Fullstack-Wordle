@@ -1,7 +1,7 @@
 import app from './app.js';
 
-const port = 5080;
+const port = process.env.PORT || 5080; 
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server running on http://localhost:${port}`);
 });
