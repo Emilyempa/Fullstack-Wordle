@@ -1,56 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
     <title>Wordle App</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="server-header">
-        <span class="material-symbols-outlined">lightbulb</span>
-        <a href="/">
-            <h1>Wordle</h1>
-        </a>          
-        <nav class="server-nav">
-            <a href="/">PLAY</a>
-            <a href="/about">ABOUT</a>
-            <a href="/highscores">HIGHEST SCORES</a>
-        </nav>
+      <span class="material-symbols-outlined">lightbulb</span>
+      <a href="/">
+        <h1>Wordle</h1>
+      </a>
+      <nav class="server-nav">
+        <a href="/">PLAY</a>
+        <a href="/about">ABOUT</a>
+        <a href="/highscores">HIGHEST SCORES</a>
+      </nav>
     </header>
     <h2>Highest Scores List</h2>
     <main>
-        <ol>
-            <% highscores.forEach(score=> { %>
-                <li>
-                    <span class="score-name">
-                        <%= score.name %>
-                    </span> 
-                    - Number of Guesses:
-                    <span class="score-label">
-                        <%= score.guesses %>,
-                    </span>     
-                    Time:<span class="score-label">
-                        <%= score.time %> sec,
-                    </span>
-                    </span> Number of Letters:
-                    <span class="score-label">
-                        <%= score.wordLength %>
-                    </span>, Repeat
-                    letters: <span class="score-label">
-                        <%= score.repeat %>
-                    </span>
-                </li>
-                <% }) %>
-        </ol>
+      <% if (highscores && highscores.length > 0) { %>
+      <h3>Top three scores 🏆</h3>
+      <ol>
+        <% highscores.slice(0, 3).forEach(score => { %>
+        <li>
+          <span class="score-name"> <%= score.name %> </span>
+          - Number of Guesses:
+          <span class="score-label"> <%= score.guesses %>, </span>
+          Time:<span class="score-label"> <%= score.time %> sec, </span>
+          Number of Letters:
+          <span class="score-label"> <%= score.wordLength %> </span>, Repeat
+          letters:
+          <span class="score-label"> <%= score.repeat %> </span>
+        </li>
+        <% }) %>
+      </ol>
+
+      <h3>Wordle Warriors ⚔️</h3>
+      <ol start="4">
+        <% highscores.slice(3).forEach(score => { %>
+        <li>
+          <span class="score-name"> <%= score.name %> </span>
+          - Number of Guesses:
+          <span class="score-label"> <%= score.guesses %>, </span>
+          Time:<span class="score-label"> <%= score.time %> sec, </span>
+          Number of Letters:
+          <span class="score-label"> <%= score.wordLength %> </span>, Repeat
+          letters:
+          <span class="score-label"> <%= score.repeat %> </span>
+        </li>
+        <% }) %>
+      </ol>
+      <% } else { %>
+      <p class="error-message">
+        ⚠️ No highscores available at the moment. Try again later!
+      </p>
+      <% } %>
     </main>
     <footer class="server-footer">
-        &copy; <%= new Date().getFullYear() %> Emily's Wordle App
+      &copy; <%= new Date().getFullYear() %> Emily's Wordle App
     </footer>
-</body>
-
+  </body>
 </html>
