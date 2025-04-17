@@ -117,14 +117,35 @@ function About() {
                 primary={
                   <>
                     <b>Testing:</b> Comprehensive end-to-end testing implemented
-                    with Cypress, covering API interactions, game logic,
-                    navigation flows, error handling and database operations.
+                    with Cypress.
                   </>
                 }
               />
             </ListItem>
           </List>
-
+          <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
+            Deployment & Hosting:
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: "0.9rem",
+              lineHeight: 1.6,
+              color: "#000000",
+              textAlign: "left",
+            }}
+          >
+            This full-stack application has been successfully deployed using <b>Render</b>,
+            ensuring high availability and scalability. Key aspects of the deployment include:
+            <List dense sx={{ pl: 2 }}>              
+              <ListItem>
+                <ListItemText primary="• Backend hosting & database integration on Render with seamless API connectivity." />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="• Secure environment configuration leveraging Render’s secrets management for MongoDB Atlas." />
+              </ListItem>
+            </List>
+          </Typography>
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Key Features:
           </Typography>
@@ -171,46 +192,19 @@ function About() {
                     <List dense sx={{ pl: 2 }}>
                       <ListItem>
                         <ListItemText
-                          primary="• API endpoints for fetching words with different parameters"
-                          secondary="(length and repeat letter settings)"
+                          primary="• Game logic, UI feedback, API calls"                          
                         />
                       </ListItem>
                       <ListItem>
                         <ListItemText
-                          primary="• Game logic and UI feedback"
-                          secondary="(letter coloring based on correct/incorrect positions)"
+                          primary="• Database ops, error handling, mock responses"                          
                         />
                       </ListItem>
                       <ListItem>
                         <ListItemText
-                          primary="• Navigation flows between all pages"
-                          secondary="(home, about, and highscores pages)"
+                          primary="• Navigation & content validation"                          
                         />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Database operations"
-                          secondary="(successful highscore submissions)"
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Error handling and input validation"
-                          secondary="(tests empty submissions, invalid characters, and incorrect word lengths)"
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Mock API responses"
-                          secondary="(for reliable and consistent testing)"
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Page content verification"
-                          secondary="(ensuring correct elements render on each page)"
-                        />
-                      </ListItem>
+                      </ListItem>                     
                     </List>
                   </>
                 }
