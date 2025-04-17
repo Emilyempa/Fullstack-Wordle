@@ -1,0 +1,11 @@
+services:
+  - name: Fullstack-Wordle
+    type: web
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
