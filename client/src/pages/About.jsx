@@ -51,12 +51,7 @@ function About() {
           </Typography>
 
           <Divider
-            sx={{
-              width: "70%",
-              marginX: "auto",
-              marginBottom: 4,
-              borderColor: "#ddd",
-            }}
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
           />
 
           <Typography
@@ -75,6 +70,10 @@ function About() {
             customizable difficulty level, a real-time timer, and a highscore
             system.
           </Typography>
+
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Technologies Used:
@@ -100,6 +99,10 @@ function About() {
               />
             </ListItem>
           </List>
+
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Deployment & Hosting:
@@ -128,6 +131,10 @@ function About() {
             </ListItem>
           </List>
 
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
+
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Key Features:
           </Typography>
@@ -155,6 +162,10 @@ function About() {
               />
             </ListItem>
           </List>
+
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Typography
             variant="body1"
