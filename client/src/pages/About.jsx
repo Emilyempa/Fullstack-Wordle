@@ -61,6 +61,7 @@ function About() {
 
           <Typography
             variant="body1"
+            component="div"
             sx={{
               fontSize: "1.1rem",
               lineHeight: 1.6,
@@ -69,7 +70,7 @@ function About() {
             }}
           >
             Welcome to my Wordle-inspired Game, a fullstack application designed
-            as part of an school assignment. This game challenges players to
+            as part of a school assignment. This game challenges players to
             guess words based on strategic feedback and includes features like a
             customizable difficulty level, a real-time timer, and a highscore
             system.
@@ -78,13 +79,13 @@ function About() {
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Technologies Used:
           </Typography>
+
           <List dense>
             <ListItem>
               <ListItemText
                 primary={
                   <>
-                    <b>Frontend:</b> Built using React and Material-UI, with
-                    Vite for an efficient development and build process.
+                    <b>Frontend:</b> Built using React and Material-UI.
                   </>
                 }
               />
@@ -93,41 +94,20 @@ function About() {
               <ListItemText
                 primary={
                   <>
-                    <b>Backend:</b> Developed with Node.js and Express.js,
-                    utilizing EJS templates for server-side rendering.
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Database:</b> Highscores are persistently stored in a
-                    MongoDB database, ensuring dynamic and server-side rendered
-                    leaderboards. The database allows efficient storage and
-                    retrieval of player results, making the leaderboard fast and
-                    scalable.
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Testing:</b> Comprehensive end-to-end testing implemented
-                    with Cypress.
+                    <b>Backend:</b> Developed with Node.js and Express.js.
                   </>
                 }
               />
             </ListItem>
           </List>
+
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Deployment & Hosting:
           </Typography>
+
           <Typography
             variant="body1"
+            component="div"
             sx={{
               fontSize: "0.9rem",
               lineHeight: 1.6,
@@ -135,20 +115,23 @@ function About() {
               textAlign: "left",
             }}
           >
-            This full-stack application has been successfully deployed using <b>Render</b>,
-            ensuring high availability and scalability. Key aspects of the deployment include:
-            <List dense sx={{ pl: 2 }}>              
-              <ListItem>
-                <ListItemText primary="• Backend hosting & database integration on Render with seamless API connectivity." />
-              </ListItem>
-              <ListItem>
-                <ListItemText primary="• Secure environment configuration leveraging Render’s secrets management for MongoDB Atlas." />
-              </ListItem>
-            </List>
+            This full-stack application has been successfully deployed using{" "}
+            <b>Render</b>, ensuring high availability and scalability.
           </Typography>
+
+          <List dense sx={{ pl: 2 }}>
+            <ListItem>
+              <ListItemText primary="• Backend hosting & database integration on Render." />
+            </ListItem>
+            <ListItem>
+              <ListItemText primary="• Secure environment configuration leveraging MongoDB Atlas." />
+            </ListItem>
+          </List>
+
           <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
             Key Features:
           </Typography>
+
           <List dense>
             <ListItem>
               <ListItemText
@@ -166,46 +149,7 @@ function About() {
                 primary={
                   <>
                     <b>Highscore System:</b> After completing a round, players
-                    can submit their results (including time, guesses, and game
-                    settings) to compete for the leaderboard.
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Informative Pages:</b> The app includes a static "About"
-                    page explaining the project and a server-side rendered
-                    highscore list.
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Comprehensive Testing:</b> The application includes
-                    thorough Cypress tests that verify:
-                    <List dense sx={{ pl: 2 }}>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Game logic, UI feedback, API calls"                          
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Database ops, error handling, mock responses"                          
-                        />
-                      </ListItem>
-                      <ListItem>
-                        <ListItemText
-                          primary="• Navigation & content validation"                          
-                        />
-                      </ListItem>                     
-                    </List>
+                    can submit their results to compete for the leaderboard.
                   </>
                 }
               />
@@ -214,6 +158,7 @@ function About() {
 
           <Typography
             variant="body1"
+            component="div"
             sx={{
               fontSize: "1.1rem",
               lineHeight: 1.6,
@@ -237,8 +182,7 @@ function About() {
               marginTop: 4,
             }}
           >
-            Thank you for checking it out, and I hope you enjoy exploring this
-            project as much as I enjoyed building it! 🚀
+            Thank you for checking it out! 🚀
           </Typography>
         </Stack>
       </Box>
