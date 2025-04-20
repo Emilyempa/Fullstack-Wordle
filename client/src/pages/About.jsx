@@ -47,7 +47,9 @@ function About() {
             About This Project
           </Typography>
 
-          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Typography
             variant="body1"
@@ -66,7 +68,9 @@ function About() {
             timer, and a highscore system.
           </Typography>
 
-          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Box component="section">
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -77,14 +81,12 @@ function About() {
                 <ListItemText
                   primary="Frontend:"
                   secondary="Built using React and Material-UI, with Vite for an efficient development and build process."
-                  secondaryTypographyProps={{ component: "span" }}
                 />
               </ListItem>
               <ListItem>
                 <ListItemText
                   primary="Backend:"
                   secondary="Developed with Node.js and Express.js, utilizing EJS templates for server-side rendering."
-                  secondaryTypographyProps={{ component: "span" }}
                 />
               </ListItem>
               <ListItem>
@@ -102,7 +104,9 @@ function About() {
             </List>
           </Box>
 
-          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Box component="section">
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -133,7 +137,9 @@ function About() {
             </List>
           </Box>
 
-          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Box component="section">
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -143,8 +149,7 @@ function About() {
               <ListItem>
                 <ListItemText
                   primary="Dynamic Gameplay"
-                  secondary="Players can customize their experience by selecting word length and toggling duplicate 
-                  letter rules, while receiving real-time visual feedback through an intuitive color-coding system."
+                  secondary="Players can customize their experience by selecting word length and toggling duplicate letter rules, while receiving real-time visual feedback through an intuitive color-coding system."
                 />
               </ListItem>
               <ListItem>
@@ -161,9 +166,15 @@ function About() {
                       The application includes thorough Cypress tests that
                       verify:
                       <Box component="div" sx={{ pl: 2, mt: 1, mb: 0 }}>
-                        <Box component="p">Game logic, UI feedback, API calls</Box>
-                        <Box component="p">Database operations, error handling</Box>
-                        <Box component="p">Navigation & content validation</Box>
+                        <Typography component="div">
+                          Game logic, UI feedback, API calls
+                        </Typography>
+                        <Typography component="div">
+                          Database operations, error handling
+                        </Typography>
+                        <Typography component="div">
+                          Navigation & content validation
+                        </Typography>
                       </Box>
                     </>
                   }
@@ -172,7 +183,9 @@ function About() {
             </List>
           </Box>
 
-          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
 
           <Typography
             variant="body1"
