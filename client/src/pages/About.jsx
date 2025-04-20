@@ -53,6 +53,7 @@ function About() {
 
           <Typography
             variant="body1"
+            component="div"
             sx={{
               fontSize: "1.1rem",
               lineHeight: 1.6,
@@ -111,22 +112,21 @@ function About() {
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
               Deployment & Hosting:
             </Typography>
-            <Box component="div">
-              <Typography
-                variant="body1"
-                sx={{
-                  fontSize: "0.9rem",
-                  lineHeight: 1.6,
-                  mb: 2,
-                }}
-              >
-                This full-stack application has been successfully deployed using{" "}
-                <Box component="span" fontWeight="bold">
-                  Render
-                </Box>
-                , ensuring high availability and scalability.
-              </Typography>
-            </Box>
+            <Typography
+              variant="body1"
+              component="div"
+              sx={{
+                fontSize: "0.9rem",
+                lineHeight: 1.6,
+                mb: 2,
+              }}
+            >
+              This full-stack application has been successfully deployed using{" "}
+              <Box component="span" fontWeight="bold">
+                Render
+              </Box>
+              , ensuring high availability and scalability.
+            </Typography>
             <List dense>
               <ListItem>
                 <ListItemText primary="Backend hosting & database integration on Render." />
@@ -162,21 +162,21 @@ function About() {
                 <ListItemText
                   primary="Comprehensive Testing"
                   secondary={
-                    <Box component="div">
+                    <>
                       The application includes thorough Cypress tests that
                       verify:
                       <Box component="div" sx={{ pl: 2, mt: 1, mb: 0 }}>
-                        <Typography component="div">
+                        <Typography component="span">
                           Game logic, UI feedback, API calls
                         </Typography>
-                        <Typography component="div">
+                        <Typography component="span">
                           Database operations, error handling
                         </Typography>
-                        <Typography component="div">
+                        <Typography component="span">
                           Navigation & content validation
                         </Typography>
                       </Box>
-                    </Box>
+                    </>
                   }
                 />
               </ListItem>
@@ -189,6 +189,7 @@ function About() {
 
           <Typography
             variant="body1"
+            component="div"
             sx={{
               fontSize: "1.1rem",
               lineHeight: 1.6,
