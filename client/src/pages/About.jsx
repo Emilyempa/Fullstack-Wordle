@@ -47,9 +47,7 @@ function About() {
             About This Project
           </Typography>
 
-          <Divider
-            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
-          />
+          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
 
           <Typography
             variant="body1"
@@ -68,9 +66,7 @@ function About() {
             timer, and a highscore system.
           </Typography>
 
-          <Divider
-            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
-          />
+          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
 
           <Box component="section">
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -106,9 +102,7 @@ function About() {
             </List>
           </Box>
 
-          <Divider
-            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
-          />
+          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
 
           <Box component="section">
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -139,9 +133,7 @@ function About() {
             </List>
           </Box>
 
-          <Divider
-            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
-          />
+          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
 
           <Box component="section">
             <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
@@ -168,16 +160,10 @@ function About() {
                     <>
                       The application includes thorough Cypress tests that
                       verify:
-                      <Box component="ul" sx={{ pl: 2, mt: 1, mb: 0 }}>
-                        <Box component="li">
-                          Game logic, UI feedback, API calls
-                        </Box>
-                        <Box component="li">
-                          Database operations, error handling
-                        </Box>
-                        <Box component="li">
-                          Navigation & content validation
-                        </Box>
+                      <Box component="div" sx={{ pl: 2, mt: 1, mb: 0 }}>
+                        <Box component="p">Game logic, UI feedback, API calls</Box>
+                        <Box component="p">Database operations, error handling</Box>
+                        <Box component="p">Navigation & content validation</Box>
                       </Box>
                     </>
                   }
@@ -186,9 +172,7 @@ function About() {
             </List>
           </Box>
 
-          <Divider
-            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
-          />
+          <Divider sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }} />
 
           <Typography
             variant="body1"
