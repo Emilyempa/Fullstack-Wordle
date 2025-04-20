@@ -165,7 +165,7 @@ function About() {
                     <>
                       The application includes thorough Cypress tests that
                       verify:
-                      <Box component="div" sx={{ pl: 2, mt: 1, mb: 0 }}>
+                      <Box component="span" sx={{ pl: 2, mt: 1, mb: 0 }}>
                         <Typography component="span">
                           Game logic, UI feedback, API calls
                         </Typography>
@@ -204,6 +204,7 @@ function About() {
 
           <Typography
             variant="body1"
+            component="div"
             sx={{
               fontSize: "1.1rem",
               fontWeight: 500,
