@@ -41,10 +41,7 @@ function About() {
               textAlign: "center",
               textTransform: "uppercase",
               letterSpacing: 1.2,
-              fontSize: {
-                xs: "2rem",
-                md: "3rem",
-              },
+              fontSize: { xs: "2rem", md: "3rem" },
             }}
           >
             About This Project
@@ -64,104 +61,130 @@ function About() {
               textAlign: "left",
             }}
           >
-            Welcome to my Wordle-inspired Game, a fullstack application designed
-            as part of a school assignment. This game challenges players to
-            guess words based on strategic feedback and includes features like a
-            customizable difficulty level, a real-time timer, and a highscore
-            system.
+            Welcome to my Wordle-inspired Game, a fullstack JavaScript
+            application designed as part of a school assignment. This game
+            challenges players to guess words based on strategic feedback and
+            includes features like a customizable difficulty level, a real-time
+            timer, and a highscore system.
           </Typography>
 
           <Divider
             sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
           />
 
-          <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
-            Technologies Used:
-          </Typography>
-
-          <List dense>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Frontend:</b> Built using React and Material-UI.
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Backend:</b> Developed with Node.js and Express.js.
-                  </>
-                }
-              />
-            </ListItem>
-          </List>
-
-          <Divider
-            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
-          />
-
-          <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
-            Deployment & Hosting:
-          </Typography>
-
-          <Typography
-            variant="body1"
-            component="div"
-            sx={{
-              fontSize: "0.9rem",
-              lineHeight: 1.6,
-              color: "#000000",
-              textAlign: "left",
-            }}
-          >
-            This full-stack application has been successfully deployed using{" "}
-            <b>Render</b>, ensuring high availability and scalability.
-          </Typography>
-
-          <List dense sx={{ pl: 2 }}>
-            <ListItem>
-              <ListItemText primary="• Backend hosting & database integration on Render." />
-            </ListItem>
-            <ListItem>
-              <ListItemText primary="• Secure environment configuration leveraging MongoDB Atlas." />
-            </ListItem>
-          </List>
+          <Box component="section">
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
+              Technologies Used:
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText
+                  primary="Frontend:"
+                  secondary="Built using React and Material-UI, with Vite for an efficient development and build process."
+                  secondaryTypographyProps={{ component: "span" }}
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Backend:"
+                  secondary="Developed with Node.js and Express.js, utilizing EJS templates for server-side rendering."
+                  secondaryTypographyProps={{ component: "span" }}
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Database:"
+                  secondary="Highscores are persistently stored in a MongoDB database, ensuring dynamic and server-side rendered leaderboards."
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Testing:"
+                  secondary="Comprehensive end-to-end testing implemented with Cypress."
+                />
+              </ListItem>
+            </List>
+          </Box>
 
           <Divider
             sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
           />
 
-          <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
-            Key Features:
-          </Typography>
+          <Box component="section">
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
+              Deployment & Hosting:
+            </Typography>
+            <Typography
+              variant="body1"
+              component="div"
+              sx={{
+                fontSize: "0.9rem",
+                lineHeight: 1.6,
+                mb: 2,
+              }}
+            >
+              This full-stack application has been successfully deployed using{" "}
+              <Box component="span" fontWeight="bold">
+                Render
+              </Box>
+              , ensuring high availability and scalability.
+            </Typography>
+            <List dense>
+              <ListItem>
+                <ListItemText primary="Backend hosting & database integration on Render." />
+              </ListItem>
+              <ListItem>
+                <ListItemText primary="Secure environment configuration leveraging MongoDB Atlas." />
+              </ListItem>
+            </List>
+          </Box>
 
-          <List dense>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Dynamic Gameplay:</b> Players can adjust the word length
-                    and decide whether repeated letters are allowed before
-                    starting the game.
-                  </>
-                }
-              />
-            </ListItem>
-            <ListItem>
-              <ListItemText
-                primary={
-                  <>
-                    <b>Highscore System:</b> After completing a round, players
-                    can submit their results to compete for the leaderboard.
-                  </>
-                }
-              />
-            </ListItem>
-          </List>
+          <Divider
+            sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
+          />
+
+          <Box component="section">
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
+              Key Features:
+            </Typography>
+            <List>
+              <ListItem>
+                <ListItemText
+                  primary="Dynamic Gameplay"
+                  secondary="Players can customize their experience by selecting word length and toggling duplicate 
+                  letter rules, while receiving real-time visual feedback through an intuitive color-coding system."
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Informative Pages"
+                  secondary="The app includes a static 'About' page explaining the project and a server-side rendered highscore list."
+                />
+              </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Comprehensive Testing"
+                  secondary={
+                    <>
+                      The application includes thorough Cypress tests that
+                      verify:
+                      <Box component="ul" sx={{ pl: 2, mt: 1, mb: 0 }}>
+                        <Box component="li">
+                          Game logic, UI feedback, API calls
+                        </Box>
+                        <Box component="li">
+                          Database operations, error handling
+                        </Box>
+                        <Box component="li">
+                          Navigation & content validation
+                        </Box>
+                      </Box>
+                    </>
+                  }
+                />
+              </ListItem>
+            </List>
+          </Box>
 
           <Divider
             sx={{ width: "70%", marginX: "auto", borderColor: "#ddd" }}
@@ -174,7 +197,6 @@ function About() {
               fontSize: "1.1rem",
               lineHeight: 1.6,
               color: "#4a4a4a",
-              textAlign: "left",
             }}
           >
             This project demonstrates fullstack development skills, showcasing
@@ -193,7 +215,8 @@ function About() {
               marginTop: 4,
             }}
           >
-            Thank you for checking it out! 🚀
+            Thank you for checking it out, and I hope you enjoy exploring this
+            project as much as I enjoyed building it! 🚀
           </Typography>
         </Stack>
       </Box>
