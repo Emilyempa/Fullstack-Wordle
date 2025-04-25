@@ -17,4 +17,16 @@ await client.connect();
 
 console.log("Connected to MongoDB!");
 
-export { client };
+const closeDB = async () => {
+  try {
+    console.log("Closing database connection...");
+    await client.close();
+    console.log("Database connection closed.");
+    process.exit(0);
+  } catch (error) {
+    console.error("Error while closing database connection:", error);
+    process.exit(1);
+  }
+};
+
+export { client , closeDB};

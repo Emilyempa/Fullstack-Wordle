@@ -1,4 +1,4 @@
-import { client } from "./db.js";
+import { client, closeDB } from "./db.js";
 import express from "express";
 import { getWordList } from "./fetchWordList.js";
 import { fileURLToPath } from "url";
@@ -54,7 +54,7 @@ app.post("/highscores", async (req, res) => {
     };
 
     await collection.insertOne(newHighscore);
-    res.status(201).json({ message: "Highscore saved!", data: newHighscore });
+    res.status(201).json({ data: newHighscore });
   } catch (error) {
     console.error("Error when posting:", error);
     res.status(500).json({ error: "Internal server malfuction" });
@@ -105,5 +105,8 @@ app.get("/api/random-word", async (req, res) => {
 app.use((req, res) => {
   res.status(404).render("404", { title: "404 - Page Not Found" });
 });
+
+process.on("SIGINT", closeDB);
+process.on("SIGTERM", closeDB);
 
 export default app;
