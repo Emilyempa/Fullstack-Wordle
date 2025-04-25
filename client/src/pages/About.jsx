@@ -62,7 +62,8 @@ function About() {
             }}
           >
             Welcome to my Wordle-inspired Game, a fullstack JavaScript
-            application designed as part of a school assignment. This game
+            application designed as part of a school assignment built using the
+            MERN stack (MongoDB, Express.js, React, and Node.js) This game
             challenges players to guess words based on strategic feedback and
             includes features like a customizable difficulty level, a real-time
             timer, and a highscore system.
