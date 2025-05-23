@@ -165,12 +165,12 @@ function About() {
                     <>
                       The application includes thorough Cypress tests that
                       verify:
-                      <Box component="span" sx={{ pl: 2, mt: 1, mb: 0 }}>
+                      <Box component="span" sx={{ pl: 2, mt: 1, mb: 0, }}>
                         <Typography component="span">
                           Game logic, UI feedback, API calls
                         </Typography>
                         <Typography component="span">
-                          Database operations, error handling
+                          Database operations, error handling, {}
                         </Typography>
                         <Typography component="span">
                           Navigation & content validation
