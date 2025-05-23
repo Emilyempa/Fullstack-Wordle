@@ -110,7 +110,7 @@ function About() {
           />
 
           <Box component="section">
-            <Typography variant="h6" component="h2" sx={{ fontWeight: 600 }}>
+            <Typography variant="h6" component="h2" sx={{ fontWeight: 600, mb:2 }}>
               Deployment & Hosting:
             </Typography>
             <Typography
@@ -125,8 +125,7 @@ function About() {
               This full-stack application has been successfully deployed using{" "}
               <Box component="span" fontWeight="bold">
                 Render
-              </Box>
-              , ensuring high availability and scalability.
+              </Box>              
             </Typography>
             <List dense>
               <ListItem>
