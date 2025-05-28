@@ -1,6 +1,6 @@
 export const fetchApiData = async (endpoint, options = {}) => {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 5000);
+  const timeout = setTimeout(() => controller.abort(), 10000);
   const signal = controller.signal;
 
   try {
