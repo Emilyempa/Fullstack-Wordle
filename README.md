@@ -8,6 +8,7 @@ Welcome to **Wordle-Inspired Game**, a fullstack application developed as part o
 - **Backend:** Node.js, Express.js, EJS
 - **Database:** MongoDB
 - **Testing:** Cypress (end-to-end testing)
+- **Code Analysis:** SonarCloud
 
 ## ✨ Key Features
 
