@@ -102,6 +102,21 @@ function About() {
                   secondary="Comprehensive end-to-end testing implemented with Cypress."
                 />
               </ListItem>
+              <ListItem>
+                <ListItemText
+                  primary="Code Quality & Security:"
+                  secondary={
+                    <a
+                      href="https://sonarcloud.io/project/overview?id=Emilyempa_Fullstack-Wordle"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: "#0E2148", textDecoration: "none" }}
+                    >
+                      View SonarCloud Report
+                    </a>
+                  }
+                />
+              </ListItem>
             </List>
           </Box>
 
@@ -110,7 +125,11 @@ function About() {
           />
 
           <Box component="section">
-            <Typography variant="h6" component="h2" sx={{ fontWeight: 600, mb:2 }}>
+            <Typography
+              variant="h6"
+              component="h2"
+              sx={{ fontWeight: 600, mb: 2 }}
+            >
               Deployment & Hosting:
             </Typography>
             <Typography
@@ -125,7 +144,7 @@ function About() {
               This full-stack application has been successfully deployed using{" "}
               <Box component="span" fontWeight="bold">
                 Render
-              </Box>              
+              </Box>
             </Typography>
             <List dense>
               <ListItem>
@@ -165,7 +184,7 @@ function About() {
                     <>
                       The application includes thorough Cypress tests that
                       verify:
-                      <Box component="span" sx={{ pl: 2, mt: 1, mb: 0, }}>
+                      <Box component="span" sx={{ pl: 2, mt: 1, mb: 0 }}>
                         <Typography component="span">
                           Game logic, UI feedback, API calls
                         </Typography>
