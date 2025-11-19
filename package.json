@@ -27,5 +27,8 @@
   "homepage": "https://github.com/Emilyempa/Fullstack-Wordle#readme",
   "devDependencies": {
     "cypress": "^14.3.0"
+  },
+  "engines": {
+    "node": "20.x"
   }
 }
